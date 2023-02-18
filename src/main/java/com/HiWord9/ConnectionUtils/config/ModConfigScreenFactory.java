@@ -14,14 +14,14 @@ public class ModConfigScreenFactory {
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Text.translatable("config.connecting-utils.title"))
+                .setTitle(Text.translatable(""))
                 .setSavingRunnable(currentConfig::write);
 
         ConfigCategory category = builder.getOrCreateCategory(Text.empty());
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.connecting-utils.enabled.title"), currentConfig.enabled)
-                .setTooltip(Text.translatable("config.connecting-utils.enabled.tooltip"))
+        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable(""), currentConfig.enabled)
+                .setTooltip(Text.translatable(""))
                 .setSaveConsumer(newConfig -> {
                     if (currentConfig.enabled != newConfig) {
                         currentConfig.enabled = newConfig;
@@ -31,26 +31,26 @@ public class ModConfigScreenFactory {
                 .setDefaultValue(defaultConfig.enabled)
                 .build());
 
-        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.connecting-utils.reconnectButtonEnabled.title"), currentConfig.reconnectButtonEnabled)
-                .setTooltip(Text.translatable("config.connecting-utils.reconnectButtonEnabled.tooltip"))
+        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable(""), currentConfig.reconnectButtonEnabled)
+                .setTooltip(Text.translatable(""))
                 .setSaveConsumer(newConfig -> currentConfig.reconnectButtonEnabled = newConfig)
                 .setDefaultValue(defaultConfig.reconnectButtonEnabled)
                 .build());
 
-        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.connecting-utils.skipWorldDisconnect.title"), currentConfig.skipWorldDisconnect)
-                .setTooltip(Text.translatable("config.connecting-utils.skipWorldDisconnect.tooltip"))
+        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable(""), currentConfig.skipWorldDisconnect)
+                .setTooltip(Text.translatable(""))
                 .setSaveConsumer(newConfig -> currentConfig.skipWorldDisconnect = newConfig)
                 .setDefaultValue(defaultConfig.skipWorldDisconnect)
                 .build());
 
-        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.connecting-utils.loadingTerrainFixButton.title"), currentConfig.loadingTerrainFixButton)
-                .setTooltip(Text.translatable("config.connecting-utils.loadingTerrainFixButton.tooltip"))
+        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable(""), currentConfig.loadingTerrainFixButton)
+                .setTooltip(Text.translatable(""))
                 .setSaveConsumer(newConfig -> currentConfig.loadingTerrainFixButton = newConfig)
                 .setDefaultValue(defaultConfig.loadingTerrainFixButton)
                 .build());
 
-        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.connecting-utils.mpMenuOpener.title"), currentConfig.mpMenuOpener)
-                .setTooltip(Text.translatable("config.connecting-utils.mpMenuOpener.tooltip"))
+        category.addEntry(entryBuilder.startBooleanToggle(Text.translatable(""), currentConfig.mpMenuOpener)
+                .setTooltip(Text.translatable(""))
                 .setSaveConsumer(newConfig -> currentConfig.mpMenuOpener = newConfig)
                 .setDefaultValue(defaultConfig.mpMenuOpener)
                 .build());
