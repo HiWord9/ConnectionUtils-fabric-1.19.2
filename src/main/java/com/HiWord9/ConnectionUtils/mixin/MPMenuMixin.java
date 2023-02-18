@@ -3,7 +3,6 @@ package com.HiWord9.ConnectionUtils.mixin;
 import com.HiWord9.ConnectionUtils.ConnectionUtils;
 import com.HiWord9.ConnectionUtils.config.ModConfig;
 import com.mojang.bridge.game.GameSession;
-import com.terraformersmc.modmenu.util.mod.Mod;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
@@ -28,12 +27,14 @@ public abstract class MPMenuMixin extends Screen implements GameSession {
     @Inject(at = @At("RETURN"), method = "init")
     private void addDisconnectButton(CallbackInfo ci) {
         if (config.enabled) {
-            if (client.world != null) {
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 154 - 24, this.height - 28, 20, 20, Text.translatable("D"), (button) -> {
-                    this.client.world.disconnect();
-                    this.client.disconnect();
-                    client.setScreen((Screen) new MultiplayerScreen(new TitleScreen()));
-                }));
+            if (config.mpMenuOpener) {
+                if (client.world != null) {
+                    this.addDrawableChild(new ButtonWidget(this.width / 2 - 154 - 24, this.height - 28, 20, 20, Text.translatable("D"), (button) -> {
+                        this.client.world.disconnect();
+                        this.client.disconnect();
+                        client.setScreen((Screen) new MultiplayerScreen(new TitleScreen()));
+                    }));
+                }
             }
         }
     }
@@ -41,10 +42,12 @@ public abstract class MPMenuMixin extends Screen implements GameSession {
     @Inject(at = @At("RETURN"), method = "init")
     private void addReturnButton(CallbackInfo ci) {
         if (config.enabled) {
-            if (client.world != null) {
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 154 - 24 - 24, this.height - 28, 20, 20, Text.translatable("R"), (button) -> {
-                    client.setScreen((Screen) new GameMenuScreen(true));
-                }));
+            if (config.mpMenuOpener) {
+                if (client.world != null) {
+                    this.addDrawableChild(new ButtonWidget(this.width / 2 - 154 - 24 - 24, this.height - 28, 20, 20, Text.translatable("R"), (button) -> {
+                        client.setScreen((Screen) new GameMenuScreen(true));
+                    }));
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.HiWord9.ConnectionUtils.mixin;
 
+import com.HiWord9.ConnectionUtils.ConnectionUtils;
+import com.HiWord9.ConnectionUtils.config.ModConfig;
 import net.minecraft.client.gui.screen.ConnectScreen;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
@@ -19,28 +21,32 @@ public abstract class ReconnectionButtonMixin extends Screen {
         super(title);
     }
 
+    private static final ModConfig config = ConnectionUtils.getConfig();
+
     @Inject(at = @At("RETURN"), method = "initWidgets")
     private void addReconnectButton(CallbackInfo ci) {
+        if (config.enabled && config.reconnectButtonEnabled) {
 
-        boolean bl = this.client.isInSingleplayer();
-        boolean bl2 = this.client.isConnectedToRealms();
+            boolean bl = this.client.isInSingleplayer();
+            boolean bl2 = this.client.isConnectedToRealms();
 
-        if (!bl && !bl2) {
-            Text text = Text.of("R");
-            this.addDrawableChild(new ButtonWidget(this.width / 2 - 102 + 208, this.height / 4 + 120 + -16, 20, 20, text, (button) -> {
-                ServerInfo CurrentServer = this.client.getCurrentServerEntry();
-                ServerAddress ServerIp = ServerAddress.parse(CurrentServer.address);
-                System.out.println(ServerIp);
+            if (!bl && !bl2) {
+                Text text = Text.of("R");
+                this.addDrawableChild(new ButtonWidget(this.width / 2 - 102 + 208, this.height / 4 + 120 + -16, 20, 20, text, (button) -> {
+                    ServerInfo CurrentServer = this.client.getCurrentServerEntry();
+                    ServerAddress ServerIp = ServerAddress.parse(CurrentServer.address);
+                    System.out.println(ServerIp);
 
-                button.active = false;
-                boolean a = false;
-                if (a) {
-                    this.client.world.disconnect();
-                }
-                this.client.disconnect();
+                    button.active = false;
 
-                ConnectScreen.connect(null, client, ServerIp, CurrentServer);
-            }));
+                    if (config.skipWorldDisconnect) {
+                        this.client.world.disconnect();
+                    }
+                    this.client.disconnect();
+
+                    ConnectScreen.connect(null, client, ServerIp, CurrentServer);
+                }));
+            }
         }
     }
 }

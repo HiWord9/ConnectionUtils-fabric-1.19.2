@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Connection Utils",
-  "description": "",
+  "description": "Adds a few useful features for server playing",
   "authors": [
     "HiWord9"
   ],

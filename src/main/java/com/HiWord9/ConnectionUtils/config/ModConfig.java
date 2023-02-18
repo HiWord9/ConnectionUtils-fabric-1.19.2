@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonWriter;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.Tooltip;
 import net.fabricmc.loader.api.FabricLoader;
 import org.apache.commons.compress.utils.IOUtils;
 
@@ -13,22 +11,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Reader;
-import java.net.PortUnreachableException;
 
 @Config(name = "connection-utils")
 public class ModConfig implements ConfigData {
 
     public boolean enabled = true;
 
-//    static class Experiment {
-//        @Tooltip
-//        public static boolean mp_menuOpener = false;
-//    }
-//
-//    @ConfigEntry.Gui.CollapsibleObject
-//    private final Experiment experimentalFeatures = new Experiment();
+    public boolean reconnectButtonEnabled = true;
 
-    private static final File FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "citresewn.json");
+    public boolean skipWorldDisconnect = true;
+
+    public boolean loadingTerrainFixButton = true;
+
+    public boolean mpMenuOpener = false;
+
+    private static final File FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "connection-utils.json");
 
     public static final ModConfig INSTANCE = read();
 
@@ -56,7 +53,6 @@ public class ModConfig implements ConfigData {
 
             gson.toJson(gson.toJsonTree(this, ModConfig.class), writer);
         } catch (Exception e) {
-//            ConnectionUtils.LOG.error("Couldn't save config");
             e.printStackTrace();
             throw new RuntimeException(e);
         } finally {

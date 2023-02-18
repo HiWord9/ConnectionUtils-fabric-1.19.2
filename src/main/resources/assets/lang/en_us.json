@@ -1,0 +1,12 @@
+{
+  "config.connecting-utils.enabled.title": "Enable",
+  "config.connecting-utils.enabled.tooltip": "If false, turns off all mod's features.",
+  "config.connecting-utils.reconnectButtonEnabled.title": "Reconnect Button Enable",
+  "config.connecting-utils.reconnectButtonEnabled.tooltip": "If false, turns off reconnect button.",
+  "config.connecting-utils.skipWorldDisconnect.title": "Skip world disconnect",
+  "config.connecting-utils.skipWorldDisconnect.tooltip": "Skips method \"client.world.disconnect()\" if true.\nIt means that you will be reconnected immediately, without your character leaving the world.\nBetter turn off for playing on pirate servers,\nas it can produce a error while connecting as \"The player with the same nickname is already connected to this server\".\n If you forgot to turn it off before reconnecting to pirate server and get this error,\ntry reload your internet connection.",
+  "config.connecting-utils.loadingTerrainFixButton.title": "Enable Loading Terrain fix button",
+  "config.connecting-utils.loadingTerrainFixButton.tooltip": "If false, turns off Loading Terrain Fix button.",
+  "config.connecting-utils.mpMenuOpener.title": "[EXPERIMENTAL] Enable Multiplayer Menu Opener",
+  "config.connecting-utils.mpMenuOpener.tooltip": "THIS IS EXPERIMENTAL FEATURE. MAY PRODUCE A LOT OF BUGS.\nIf true, shows a Multiplayer Menu Opener button.\nThis button will open server list while you are on server.\nIt means, that you can connect to multiple servers or even with multiple accounts (requires In-game Account Switcher mod) at one time.\nYour player will be AFK while you are playing on another server.\nYou wont be able to disconnect from server you are not connected to from your client right now from menu.\nYou need to reload your internet connection for disconnecting from all servers your character on"
+}

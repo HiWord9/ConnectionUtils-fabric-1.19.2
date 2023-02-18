@@ -1,5 +1,7 @@
 package com.HiWord9.ConnectionUtils.mixin;
 
+import com.HiWord9.ConnectionUtils.ConnectionUtils;
+import com.HiWord9.ConnectionUtils.config.ModConfig;
 import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
@@ -17,12 +19,18 @@ public abstract class LoadingTerrainFixButtonMixin extends Screen {
         super(title);
     }
 
+    private static final ModConfig config = ConnectionUtils.getConfig();
+
     @Inject(at = @At("RETURN"), method = "render")
     private void addLoadingTerrainFixButton(CallbackInfo ci) {
-        Text text = Text.of("LoadingTerrain Fix");
-        this.addDrawableChild(new ButtonWidget(4, 4 , 100, 20, text, (button) -> {
-            client.setScreen((Screen) new GameMenuScreen(true));
-            button.active = false;
-        }));
+        if (config.enabled) {
+            if (config.loadingTerrainFixButton) {
+                Text text = Text.of("LoadingTerrain Fix");
+                this.addDrawableChild(new ButtonWidget(4, 4, 100, 20, text, (button) -> {
+                    client.setScreen((Screen) new GameMenuScreen(true));
+                    button.active = false;
+                }));
+            }
+        }
     }
 }

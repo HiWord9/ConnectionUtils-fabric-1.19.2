@@ -9,8 +9,7 @@
     "ReconnectionButtonMixin",
     "LoadingTerrainFixButtonMixin",
     "MPMenuMixin",
-    "MPMenuOpenerMixin",
-    "MinecraftClientMixin"
+    "MPMenuOpenerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
