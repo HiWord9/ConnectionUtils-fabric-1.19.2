@@ -3,10 +3,10 @@
   "text.autoconfig.connection-utils.option.enabled": "Enable",
   "text.autoconfig.connection-utils.option.enabled.@Tooltip": "If false, turns off all mod's features.",
   "text.autoconfig.connection-utils.option.reconnectButtonEnabled": "Reconnect Button Enable",
-  "text.autoconfig.connection-utils.option.reconnectButtonEnabled.@Tooltip": "If false, turns off reconnect button.",
+  "text.autoconfig.connection-utils.option.reconnectButtonEnabled.@Tooltip": "If false, turns off Reconnect Button.",
   "text.autoconfig.connection-utils.option.skipWorldDisconnect": "Skip world disconnect",
-  "text.autoconfig.connection-utils.option.skipWorldDisconnect.@Tooltip": "Skips method \"client.world.disconnect()\" if true.\nIt means that you will be reconnected immediately, without your character leaving the world.\nBetter turn off for playing on pirate servers,\nas it can produce a error while connecting as \"The player with the same nickname is already connected to this server\".\n If you forgot to turn it off before reconnecting to pirate server and get this error,\ntry reload your internet connection.",
-  "text.autoconfig.connection-utils.option.loadingTerrainFixButton": "Enable Loading Terrain fix button",
+  "text.autoconfig.connection-utils.option.skipWorldDisconnect.@Tooltip": "Skips method \"client.world.disconnect()\" if true.\nIt means that you will be reconnected immediately, without your character leaving the world.\nBetter turn off for playing on pirate servers,\nas it can produce a error while connecting as \"The player with the same nickname is already connected to this server\".\nIf you forgot to turn it off before reconnecting to pirate server and get this error,\ntry reload your internet connection.",
+  "text.autoconfig.connection-utils.option.loadingTerrainFixButton": "Enable Loading Terrain Fix Button",
   "text.autoconfig.connection-utils.option.loadingTerrainFixButton.@Tooltip": "If false, turns off Loading Terrain Fix button.",
   "text.autoconfig.connection-utils.option.mpMenuOpener": "[EXPERIMENTAL] Enable Multiplayer Menu Opener",
   "text.autoconfig.connection-utils.option.mpMenuOpener.@Tooltip": "THIS IS EXPERIMENTAL FEATURE. MAY PRODUCE A LOT OF BUGS.\nIf true, shows a Multiplayer Menu Opener button.\nThis button will open server list while you are on server.\nIt means, that you can connect to multiple servers or even with multiple accounts (requires In-game Account Switcher mod) at one time.\nYour player will be AFK while you are playing on another server.\nYou wont be able to disconnect from server you are not connected to from your client right now from menu.\nYou need to reload your internet connection for disconnecting from all servers your character on"
