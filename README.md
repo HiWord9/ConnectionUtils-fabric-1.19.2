@@ -3,6 +3,6 @@
 ## This mod contains a few feature for making minecraft server playing experiance better.
 Reconnect Button
 ##
-Loading Terrain fix button (I dont really know does it work or not)
+Loading Terrain fix button
 ##
 Multiplayer Menu Opener (A lot of bugs, actually it is experimental feature)
